@@ -101,7 +101,7 @@ class PlayerUtil
 			$galaxy	= $config->LastSettedGalaxyPos;
 			$system = $config->LastSettedSystemPos;
 			$planet	= $config->LastSettedPlanetPos;
-
+			$system += rand(1,5);
 			if($galaxy > $config->max_galaxy) {
 				$galaxy	= 1;
 			}
@@ -604,7 +604,7 @@ class PlayerUtil
 		    return true;
         }elseif(($position == 2 && $minPlanetPerTech > 6) || ($position == 14 && $minPlanetPerTech > 6)){
 		    return true;
-        }elseif(($position == 1 && $minPlanetPerTech > 6) || ($position == 14 && $minPlanetPerTech > 15)){
+        }elseif(($position == 1 && $minPlanetPerTech > 6) || ($position == 15 && $minPlanetPerTech > 11)){
             return true;
         }
 		return false;

@@ -71,12 +71,12 @@ class MissionCaseFoundDM extends MissionFunctions implements Mission
             //Темная материя
             $GetEvent	= mt_rand(0,100000);
             if($GetEvent <= 70000){
-                $Size 	= mt_rand(25, 62) * ($fleetPrize/500000);
+                $Size 	= mt_rand(15, 30) * ($fleetPrize/500000);
                 $this->UpdateFleet('fleet_resource_darkmatter', $Size);
                 $Message 	= $LNG['sys_expe_found_dm_'.mt_rand(1, 3).'_'.mt_rand(1, 2).''];
             //Антиматерия
             }else{
-                $Size = mt_rand(10,25);
+                $Size = mt_rand(1,15);
                 $sql	= "UPDATE %%USERS%% SET antimatter = antimatter + ".$Size." WHERE id = :userId;";
                     Database::get()->update($sql, array(
                         ':userId'       => $this->_fleet['fleet_owner'],

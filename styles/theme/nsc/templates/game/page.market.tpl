@@ -9,6 +9,9 @@
                     <a class="market_1 {if $cookie == 1}active{/if}" href="#" onclick="open_market('market_1', 1)">{$LNG.market_lot_active}</a>   
                     <a class="market_2 {if $cookie == 2}active{/if}" href="#" onclick="open_market('market_2', 2)">{$LNG.market_go_lot}</a>
                     <a class="market_3 {if $cookie == 3}active{/if}" href="#" onclick="open_market('market_3', 3)">{$LNG.market_you_lot}</a>
+                    <a class="market_4 {if $cookie == 4}active{/if}" href="#" onclick="open_market('market_4', 4)">交易需要100暗物质</a>
+
+
                 </div>
             </div>
             <div class="fleettab9" style="margin-bottom:5px"></div>

@@ -32,9 +32,10 @@ class ShowBonusPage extends AbstractGamePage
 			$this->redirectTo('game.php');
         
 		$bonus = array(
-			921	=> rand(100,1000),
-			922	=> rand(15,100),
-			924	=> rand(1,3),
+			921	=> rand(50,100),
+			922	=> rand(5,10),
+			924 => rand(1,3),
+
 		);
         
 		foreach($bonus as $id => $key)
@@ -42,7 +43,7 @@ class ShowBonusPage extends AbstractGamePage
 			$USER[$resource[$id]]	+= $bonus[$id];
 		}
         
-		$time			 = (TIMESTAMP + 86400);
+		$time			 = (TIMESTAMP + 57600);
         
 		$db = Database::get();
 		$sql = 'UPDATE %%USERS%% SET bonus_time = :time WHERE id = :userID;';

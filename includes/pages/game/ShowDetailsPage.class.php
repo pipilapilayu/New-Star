@@ -33,15 +33,55 @@ class ShowDetailsPage extends AbstractGamePage
 		if ( !BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources)) {
 			return;
 		}
+
+        	$amount = HTTP::_GP('amount', 0);
+        	$href = 'game.php?page=details';         	
+		$bonus = 1;
+
+// check before doing actual change
+// TODO these codes are copied from UpdateMaxAmount, UpdateResAmount and UpdateSqlBonusElementNole,
+// it is architecture level error to mix checks and actual changes to global state and database
+if($amount > $pricelist[$Element]['max']){
+    $this->printMessage(''.$LNG['bd_limit'].'',true, array($href, 2));	
+}
+foreach($reslist['resstype'][1] as $resPM)
+{
+    if(isset($costResources[$resPM])) {
+        if($PLANET[$resource[$resPM]] < $costResources[$resPM]* $amount){
+            $this->printMessage("".$LNG['bd_notres']."", true, array($href, 2));
+        }
+    }
+}
         
-        $amount = HTTP::_GP('amount', 0);    
-        $USER[$resource[$Element]]	+= $amount;
-        
-        $href = 'game.php?page=details'; 
-        require_once('includes/subclasses/subclass.UpdateMaxAmount.php');
-        require_once('includes/subclasses/subclass.UpdateResAmount.php');
-        $bonus = 1;
-        require_once('includes/subclasses/subclass.UpdateSqlBonusElementNole.php');
+foreach($reslist['resstype'][3] as $resUM)
+{
+    if(isset($costResources[$resUM])) {
+        if($USER[$resource[$resUM]] < $costResources[$resUM]* $amount){
+            $this->printMessage("".$LNG['bd_notres']."", true, array($href, 2));
+        }
+    }
+}
+if(isset($BonusElement[$Element]))
+{
+    foreach($BonusElement[$Element] as $ID => $Count)
+    {
+        if(isset($PLANET[$resource[$ID]])){
+            if($PLANET[$resource[$ID]] + $Count * $amount * $bonus < 0){
+                $this->printMessage(''.$LNG['bd_notres'].'', true, array('game.php?page=details', 2));
+            }        }else{
+            if($USER[$resource[$ID]] + $Count * $amount * $bonus < 0){
+                $this->printMessage(''.$LNG['bd_notres'].'', true, array('game.php?page=details', 2));
+            }
+        }
+    }
+}
+
+		$USER[$resource[$Element]]	+= $amount;
+
+        	require_once('includes/subclasses/subclass.UpdateMaxAmount.php');
+       		require_once('includes/subclasses/subclass.UpdateResAmount.php');
+
+        	require_once('includes/subclasses/subclass.UpdateSqlBonusElementNole.php');
 		require_once('includes/subclasses/subclass.UpdateSqlGeneral.php');
 	}
 	

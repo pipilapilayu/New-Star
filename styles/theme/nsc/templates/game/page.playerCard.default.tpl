@@ -20,7 +20,7 @@
                                                 <div class="card-body">
                                                     <p class="card-title" style="font-size: 20px;">
                                                         {$name} 
-                                                        {if $allyname}[<a href="#" onclick="parent.location = 'game.php?page=alliance&amp;mode=info&amp;id={$allyid}';return false;" class="playercrd17">{$allyname}</a>{else}{/if}]
+                                                        {if $allyname}[<a href="#" onclick="parent.location = 'game.php?page=alliance&amp;mode=info&amp;id={$allyid}';return false;" class="playercrd17">{$allyname}]</a>{else}{/if}
                                                     </p>
                                                     <p class="card-title">
                                                         <a href="#" onclick="parent.location = 'game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system}';return false;">{$homeplanet} [{$galaxy}:{$system}:{$planet}]</a>

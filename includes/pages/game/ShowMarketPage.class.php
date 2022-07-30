@@ -30,7 +30,7 @@ class ShowMarketPage extends AbstractGamePage
         
         $db			= Database::get();
 		$lot		= array();
-        //Ресурсы, которые принадлежат планете
+        //属于地球的资源
         $Planet_list = array_diff(array_merge($reslist['resstype'][1], $reslist['fleet'], $reslist['defense']), $reslist['not_market_send']);
 		foreach($Planet_list as $sellID)
 		{
@@ -41,7 +41,7 @@ class ShowMarketPage extends AbstractGamePage
 				'count'	=> $PLANET[$resource[$sellID]],
 			);
 		}
-        //Ресусры, которые принадлежат игроку
+        //属于玩家的资源
         $User_list = array_diff(array_merge($reslist['ars']), $reslist['not_market_send']);
         foreach($User_list as $sellID)
 		{
@@ -52,12 +52,12 @@ class ShowMarketPage extends AbstractGamePage
 				'count'	=> $USER[$resource[$sellID]],
 			);
 		}
-        //Запрос на все лоты, которые выставлены, кроме тех, которые принадлежат игроку
+        //查询所有显示的地段，但属于玩家的地段除外
 		$sql ='SELECT * FROM %%MARKET%%  WHERE id_owner != :userID;';
 		$markets = $db->select($sql, array(
 			':userID'	=> $USER['id']
 		));
-		//Запрос через foreach
+		//通过foreach查询
 		$market	= array();
 		foreach($markets as $lotID)
 		{	
@@ -81,12 +81,12 @@ class ShowMarketPage extends AbstractGamePage
                         'time'		 => _date($LNG['php_tdformat'],$lotID['time']),
                     );
 		}	
-		//Показываем лоты, которые принадлежат игроку
+		//显示属于玩家的物品
 		$sql ='SELECT * FROM %%MARKET%%  WHERE id_owner = :userID; ';
 		$u = $db->select($sql, array(
 			':userID'	=> $USER['id']
 		));		
-        //Запрос через foreach
+        //通过foreach查询
 		$u_lot	= array();
 		foreach($u as $lotID)
 		{	
@@ -111,7 +111,7 @@ class ShowMarketPage extends AbstractGamePage
                     'time'		 => _date($LNG['php_tdformat'],$lotID['time']),
                 );
 		}	
-        //Конец
+        //端
         $this->tplObj->loadscript("market.js");
 		$cookie = isset($_COOKIE['open_market']) ? 	$_COOKIE['open_market'] : 1;
 		$this->assign(array(
@@ -223,6 +223,13 @@ class ShowMarketPage extends AbstractGamePage
             foreach ($sell_lot as $sell => $id)
             {
 				$res	= explode(',', $id);
+				//禁止售卖太阳能卫星
+				if($res[0] == 212){
+					$this->printMessage($LNG['禁止买卖太阳能卫星'], array(array(
+						'label'	=> $LNG['sys_forward'],
+						'url'	=> 'game.php?page=market'
+					)));
+				}
 
                 if(in_array($res[0], array_diff(array_merge($reslist['resstype'][1], $reslist['fleet'], $reslist['defense']), $reslist['not_market_send']))){
 
@@ -250,10 +257,20 @@ class ShowMarketPage extends AbstractGamePage
                         ':amount'			=> $res[1]
                     ));
                 }
-            }	
-            
+            }
+			$item = 921;	
+            //判断是否有100暗物质
+			if($USER[''.$resource[$item].''] < 100){
+				$this->printMessage($LNG['暗物质不足，购买需要100暗物质'], array(array(
+					'label'	=> $LNG['sys_forward'],
+					'url'	=> 'game.php?page=market'
+				)));
+			}else{
             $USER[$resource[$resglobal['market_res']]] -= $selling['price'];
-        
+			//扣除100暗物质
+			$item = 921;
+            $count = 100;
+            $USER[''.$resource[$item].''] -= $count;
             $sql =  "UPDATE %%USERS%% SET ".$resource[$resglobal['market_res']]." = ".$resource[$resglobal['market_res']]." + :amount WHERE id = :userID;";
             $db->update($sql, array(
                 ':userID'=> $selling['id_owner'],
@@ -268,7 +285,8 @@ class ShowMarketPage extends AbstractGamePage
             $this->printMessage($LNG['market_buy'], array(array( 
                 'label'	=> $LNG['sys_forward'],
                 'url'	=> 'game.php?page=market')
-            ));	
+            ));
+		}	
 		}
 	}
 	

@@ -39,15 +39,17 @@ class ShowMineralsPage extends AbstractGamePage
         if($amount > $USER[$resource[$Element]]){
 			$this->printMessage(''.$LNG['bd_notres'].'', true, array('game.php?page=minerals', 2));
 		}
-        
-        $USER[$resource[$Element]]	-= $amount;
-        
-        $href = 'game.php?page=minerals'; 
-        require_once('includes/subclasses/subclass.UpdateMaxAmount.php');
-        require_once('includes/subclasses/subclass.UpdateResAmount.php');
-        $bonus = 1;
-        require_once('includes/subclasses/subclass.UpdateSqlBonusElement.php');
-		require_once('includes/subclasses/subclass.UpdateSqlGeneral.php');
+        else{        
+			$USER[$resource[$Element]]	-= $amount;
+			$href = 'game.php?page=minerals'; 
+			require_once('includes/subclasses/subclass.UpdateMaxAmount.php');
+			require_once('includes/subclasses/subclass.UpdateResAmount.php');
+			$bonus = 1;
+			require_once('includes/subclasses/subclass.UpdateSqlBonusElement.php');
+			require_once('includes/subclasses/subclass.UpdateSqlGeneral.php');
+		}
+
+    
 	}
 	
 	public function show()

@@ -59,7 +59,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
         if($fleetPoints > 50000000 * $config->stat_settings){
             $fleetPoints = 50000000 * $config->stat_settings;
         }
-        //Фактор добычи от посланного флота.
+        //从派遣舰队的战利品因素。.
         $exp_factor = 0.15; //15%
         $fleetPrize = $fleetPoints * $exp_factor;
         
@@ -67,7 +67,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
 			+ $this->_fleet['fleet_resource_deuterium'] + $this->_fleet['fleet_resource_darkmatter'];
 
         $GetEvent	= mt_rand(0,100000);
-        //1. Ресурсы. 
+        //1. 资源 
         if($GetEvent <= 40000){
             
           $input = $reslist['resstype'][1];
@@ -91,20 +91,20 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
             $fleetColName	= 'fleet_resource_'.$resource[$input[$rand_keys]];
 			$this->UpdateFleet($fleetColName, $this->_fleet[$fleetColName] + $Size); 
             
-        //2. Поиск Темной материи. 
+        //2. 寻找暗物质。 
         }elseif($GetEvent > 40000 && $GetEvent <= 50000){
 
-            if($fleetPoints < 500000 * $config->stat_settings){
+            if($fleetPoints < 50000){
                 $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
             }else{
                 $FindSize   = mt_rand(0, 100);
                 $Size       = 0; 
 
                 if(10 < $FindSize) {
-                    $Size		= mt_rand(12, 14) * ($fleetPrize/500000); 
+                    $Size		= mt_rand(7, 14) * ($fleetPrize/500000); 
                     $Message	= $LNG['sys_expe_found_dm_1_'.mt_rand(1,5)];
                 } elseif(0 < $FindSize && 10 >= $FindSize) {
-                    $Size		= mt_rand(16, 24)* ($fleetPrize/500000); 
+                    $Size		= mt_rand(5, 10)* ($fleetPrize/5000000); 
                     $Message	= $LNG['sys_expe_found_dm_2_'.mt_rand(1,3)];
                 } elseif(0 == $FindSize) {
                     $Size	 	= mt_rand(26, 32) * ($fleetPrize/500000);
@@ -114,10 +114,10 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
                 $this->UpdateFleet('fleet_resource_darkmatter', $this->_fleet['fleet_resource_darkmatter'] + $Size);
             }
             
-        //3. Минералы.   
+        //3. 矿物.   
         }elseif($GetEvent > 50000 && $GetEvent <= 55000){ 
 
-            if($fleetPoints < 500000 * $config->stat_settings){
+            if($fleetPoints < 50000){
                 $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
             }else{
                 $input = $reslist['minerals'];
@@ -131,7 +131,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
                 $Message        = ''.$LNG['sys_expe_found_minerals_'.mt_rand(1,7)].' <span style="color:#58c552">('.$LNG['tech'][$input[$rand_keys]].': '.pretty_number($Size).')</span>';
             }
         
-        //4. Замедление и ускорение.
+        //4. 减速和加速.
         }elseif($GetEvent > 55000 && $GetEvent <= 65000){
             
             $MoreTime	= mt_rand(0,100);
@@ -145,10 +145,10 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
 				$Message = $LNG['sys_expe_time_fast_'.mt_rand(1,3)];
 			}
             
-        //5. Контейнеры.
+        //5. 集装箱.
         }elseif($GetEvent > 65000 && $GetEvent <= 70000){
 
-            if($fleetPoints < 500000 * $config->stat_settings){
+            if($fleetPoints < 50000){
                 $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
             }else{
                 $Size = mt_rand(1,5);
@@ -160,10 +160,10 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
                 $Message        = ''.$LNG['sys_expe_found_container_'.mt_rand(1,5)].' <span style="color:#b69149">('.$LNG['tech'][924].': '.pretty_number($Size).')</span>';
             }
             
-        //6. Поиск звездной руды.
+        //6. 寻找星矿
         }elseif($GetEvent > 70000 && $GetEvent <= 72000){ 
 
-            if($fleetPoints < 500000 * $config->stat_settings){
+            if($fleetPoints < 50000){
                 $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
             }else{
                 $sql	= "UPDATE %%USERS%% SET stardust = stardust + 1 WHERE id = :userId;";
@@ -173,10 +173,10 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
                 $Message	    = $LNG['sys_expe_found_so_'.mt_rand(1,7)];
             }
           
-        //7. Поиск флота.
+        //7.舰队搜索.
         }elseif($GetEvent > 72000 && $GetEvent <= 78000){
             
-            if($fleetPoints < 200000 * $config->stat_settings){
+            if($fleetPoints < 20000){
                 $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];     
             }else{
                 $Message        = $LNG['sys_expe_found_ships_'.mt_rand(1,8)];
@@ -215,17 +215,17 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
 				$this->UpdateFleet('fleet_amount', array_sum($fleetArray));
             }
 
-        //8. Пропажа флота.
-        }elseif($GetEvent > 78000 && $GetEvent <= 79000){
+        //8. 舰队失踪.
+        }elseif($GetEvent > 78000 && $GetEvent <= 78500){
             
             $this->KillFleet();
 			$Message	= $LNG['sys_expe_lost_fleet_'.mt_rand(1,4)];
-
-        //9. Пусто.
+        //9. 空.
         }else{
             
             $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
         
+
         }
         //Конец
 		PlayerUtil::sendMessage($this->_fleet['fleet_owner'], 0, $LNG['sys_mess_tower'], 15,
@@ -234,7 +234,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
 		$this->setState(FLEET_RETURN);
 		$this->SaveFleet();
 	}
-	//Домой
+	//回家
 	function ReturnEvent()
 	{
 		$LNG		= $this->getLanguage(NULL, $this->_fleet['fleet_owner']);

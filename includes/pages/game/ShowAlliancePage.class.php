@@ -713,7 +713,7 @@ class ShowAlliancePage extends AbstractGamePage
     public function Update($Element)
 	{
 		global $PLANET, $USER, $reslist, $resource, $pricelist, $LNG;
-        
+
         if (!$this->rights['ADMIN']) {
 			$this->redirectToHome();
 		}
@@ -874,7 +874,7 @@ class ShowAlliancePage extends AbstractGamePage
             $resourceStorage[$resourceID]['current']		    = $this->allianceData[$resource[$resourceID]];
         }        
         
-        $max_res = 1000;
+        $max_res = 1000000;
 		
 		$this->tplObj->loadscript("trader_all.js");
 		$this->tplObj->assign_vars(array(
@@ -892,11 +892,19 @@ class ShowAlliancePage extends AbstractGamePage
 		if ($USER['ally_put'] > TIMESTAMP) {
 			$this->redirectToHome();
 		}
-        
+        //限制每个人每三天只能放一次
+		if($USER['ally_put'] + 259200 > TIMESTAMP)
+		{
+			$this->printMessage('每三天只能贡献一次', true, array('game.php?page=alliance&mode=storage', 3));
+			return;
+		}
+		$USER['ally_put'] = TIMESTAMP;
+		$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET ally_put = ".TIMESTAMP." WHERE id = ".$USER['id'].";");
+
         $working_array = array_merge($reslist['resstype'][1],$reslist['resstype'][3]);
         $res           = array();
         $total         = 0;
-        $max_res       = 1000;
+        $max_res       = 1000000;
         
         foreach($working_array as $resourceID)
         {
@@ -993,7 +1001,7 @@ class ShowAlliancePage extends AbstractGamePage
             $resourceStorage[$resourceID]['current']		    = $this->allianceData[$resource[$resourceID]];
         }    
 
-		$max_res = 1000;
+		$max_res = 1000000;
 		
 		$this->tplObj->loadscript("trader_all.js");
 		$this->tplObj->assign_vars(array(
@@ -1017,7 +1025,7 @@ class ShowAlliancePage extends AbstractGamePage
         $working_array = array_merge($reslist['resstype'][1],$reslist['resstype'][3]);
         $res           = array();
         $total         = 0;
-        $max_res       = 1000;
+        $max_res       = 1000000;
         
         foreach($working_array as $resourceID)
         {
@@ -1135,7 +1143,9 @@ class ShowAlliancePage extends AbstractGamePage
     private function adminissue_send()
 	{
 		global $USER, $PLANET, $LNG, $reslist, $resource;
-		
+		        //提示禁止分配
+				$this->printMessage($LNG['非联盟战期间禁止分配资源'], true, array('game.php?page=alliance', 2));
+				return;
 		if ($this->allianceData['ally_owner'] != $USER['id']) {
 			$this->redirectToHome();
 		}

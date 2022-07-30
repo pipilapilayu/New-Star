@@ -40,15 +40,15 @@ class ShowConteinerPage extends AbstractGamePage
             
                 $GetFactor = 	mt_rand(0,100000); //Фактор
                 if($GetFactor <= 10000){
-                    $factor = mt_rand(2,10);
-                }elseif($GetFactor > 10000 && $GetFactor <= 11000){
-                    $factor = mt_rand(10,25);
-                }elseif($GetFactor > 11000 && $GetFactor <= 11500){
-                    $factor = mt_rand(25,50);
-                }elseif($GetFactor > 11000 && $GetFactor <= 11250){
-                    $factor = mt_rand(50,75);
-                }elseif($GetFactor > 11250 && $GetFactor <= 11350){
-                    $factor = mt_rand(75,100);
+                    $factor = 1;
+                }elseif($GetFactor > 10000 && $GetFactor <= 11500){
+                    $factor = 2;
+                }elseif($GetFactor > 11500 && $GetFactor <= 11900){
+                    $factor = 3;
+                }elseif($GetFactor > 11900 && $GetFactor <= 12000){
+                    $factor = 5;
+                }elseif($GetFactor > 12000 && $GetFactor <= 13000){
+                    $factor = 1;
                 }else{
                     $factor = 1;
                 }
@@ -58,7 +58,7 @@ class ShowConteinerPage extends AbstractGamePage
                     
                     $item = array(901,902,903);
                     $random_keys = array_rand($item);
-                    $count = mt_rand(50000,150000) * Config::get()->stat_settings; 
+                    $count = mt_rand(50000,150000); 
                     $PLANET[''.$resource[$item[$random_keys]].''] += $count * $factor;
                     $item_log = $item[$random_keys];
                     include('includes/subclasses/subclass.ConteinerLog.php');
@@ -67,7 +67,7 @@ class ShowConteinerPage extends AbstractGamePage
                 
                     $item = array(202,203,204,205,401,402,403);
                     $random_keys = array_rand($item); 
-                    $count = mt_rand(5,15) * Config::get()->stat_settings; 
+                    $count = mt_rand(5,25); 
                     $sql	= "UPDATE %%PLANETS%% SET ".$resource[$item[$random_keys]]." = ".$resource[$item[$random_keys]]." + ".($count * $factor)." WHERE id = :planetId;";
                     Database::get()->update($sql, array(
                         ':planetId'       => $PLANET["id"],
@@ -77,9 +77,9 @@ class ShowConteinerPage extends AbstractGamePage
 	
                 }elseif($GetEvent > 80000 && $GetEvent <= 90000){
                     
-                    $item = array(206,207,211,213,215,219,404,405,406);
+                    $item = array(206,207,211,215,404,405,406);
                     $random_keys = array_rand($item); 
-                    $count = mt_rand(1,3) * Config::get()->stat_settings; 
+                    $count = mt_rand(1,5); 
                     $sql	= "UPDATE %%PLANETS%% SET ".$resource[$item[$random_keys]]." = ".$resource[$item[$random_keys]]." + ".($count * $factor)." WHERE id = :planetId;";
                     Database::get()->update($sql, array(
                         ':planetId'       => $PLANET["id"],
@@ -87,7 +87,7 @@ class ShowConteinerPage extends AbstractGamePage
                     $item_log = $item[$random_keys];
                     include('includes/subclasses/subclass.ConteinerLog.php');
 
-                }elseif($GetEvent > 90000 && $GetEvent <= 95000){
+                }elseif($GetEvent > 90000 && $GetEvent <= 90010){
                     
                     $item = $reslist['ars'];
                     $random_keys = array_rand($item);
@@ -102,7 +102,7 @@ class ShowConteinerPage extends AbstractGamePage
                 }elseif($GetEvent > 95000 && $GetEvent <= 97000){
                     
                     $item = 921;
-                    $count = mt_rand(12,46) * Config::get()->stat_settings;
+                    $count = mt_rand(10,20);
                     $USER[''.$resource[$item].''] += $count * $factor;
                     $item_log = $item;
                     include('includes/subclasses/subclass.ConteinerLog.php');
@@ -110,16 +110,16 @@ class ShowConteinerPage extends AbstractGamePage
                 }elseif($GetEvent > 97000 && $GetEvent <= 99900){
                     
                     $item = 922;
-                    $count = mt_rand(10,25); 	
+                    $count = mt_rand(1,10); 	
                     $USER[''.$resource[$item].''] += $count * $factor;
                     $item_log = $item;
                     include('includes/subclasses/subclass.ConteinerLog.php');
 
                 }elseif($GetEvent > 99900 && $GetEvent <= 99950){
                     
-                    $item = array(214,216,218,410);
+                    $item = array(214);
                     $random_keys = array_rand($item); 
-                    $count = 1 * Config::get()->stat_settings; 
+                    $count = 1 ; 
                     $sql	= "UPDATE %%PLANETS%% SET ".$resource[$item[$random_keys]]." = ".$resource[$item[$random_keys]]." + ".($count * $factor)." WHERE id = :planetId;";
                     Database::get()->update($sql, array(
                         ':planetId'       => $PLANET["id"],
@@ -139,7 +139,7 @@ class ShowConteinerPage extends AbstractGamePage
    
                     $item = array(901,902,903);
                     $random_keys = array_rand($item);
-                    $count = mt_rand(50000,150000) * Config::get()->stat_settings;
+                    $count = mt_rand(50000,100000);
                     $PLANET[''.$resource[$item[$random_keys]].''] += $count * $factor;
                     $item_log = $item[$random_keys];
                     include('includes/subclasses/subclass.ConteinerLog.php');
