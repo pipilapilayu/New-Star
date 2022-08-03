@@ -134,7 +134,8 @@ for ($j = 0;$j <= count($bots) - 1;$j++)
         {
 	    // Building time!
             $time = time();
-            $buildTime = (($metal + $crystal + 3) / ($game_speed * (1 + $planet_buildings[5])) * pow(0.5, $planet_buildings[6])) * $data_building[3];
+            // $buildTime = (($metal + $crystal + 3) / ($game_speed * (1 + $planet_buildings[5])) * pow(0.5, $planet_buildings[6])) * $data_building[3];
+            $buildTime = 10;
             $endTime = $time + $buildTime;
             $b_building_array[0][0] = $id_vars;
             $b_building_array[0][1] = $levelup;
@@ -152,6 +153,7 @@ for ($j = 0;$j <= count($bots) - 1;$j++)
         {
             $time = time();
             $buildTime = ($metal + $crystal + 3) / (1000 * $levelup) / $game_speed * (1 + $planet_buildings[11]);
+            #$buildTime = 10;
             $endTime = $time + $buildTime;
             $b_tech_array[0][0] = $id_vars;
             $b_tech_array[0][1] = $levelup;

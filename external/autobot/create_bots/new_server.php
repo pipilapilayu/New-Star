@@ -22,8 +22,8 @@ while($created!=1) {
 // Find free space to initialize planet creation
 $created = 0;
 while($created!=1) {
-	$galaxy = rand(1, $max_galaxy);
-	$system = rand(1, $max_system);
+	$galaxy = rand(1, 3);
+	$system = rand(1, 150);
 	$planet = rand(1, 15);
 	$is_empty = mysqli_fetch_all(mysqli_query($connection, "SELECT id FROM uni1_planets WHERE galaxy=$galaxy AND system=$system AND planet=$planet"));
 		if(empty($is_empty)) {
