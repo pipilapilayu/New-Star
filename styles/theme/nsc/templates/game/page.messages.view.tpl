@@ -5,7 +5,9 @@
    <input type="hidden" name="ajax" value="1">
    <input type="hidden" name="messcat" value="{$MessID}">
    <input type="hidden" name="side" value="{$page}">
-        <div class="message_page_navigation" style="color: #ccc;">{$LNG.mg_page}: 
+        <div class="message_page_navigation" style="color: #ccc;">
+			{if $moreUnread != 0}<span style="color:#a79a06">还有更多的未读消息在后面&gt;</span>{/if}
+            {$LNG.mg_page}: 
             {if $page != 1}<a href="#" class="messagesnew2 messagesnew3" onclick="Message.getMessages({$MessID}, {$page - 1});return false;">&laquo;</a>&nbsp;{/if}
             <a href="#" class="messagesnew2 messagesnew3" onclick="Message.getMessages({$MessID}, 1);return false;">{if 1 == $page}<span class="active_page">1</span>{else}1{/if}</a>
             {if $page - 4 > 1} ... {/if}   

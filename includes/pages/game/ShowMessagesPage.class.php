@@ -68,6 +68,7 @@ class ShowMessagesPage extends AbstractGamePage
 
         $MessageList	= array();
         $MessagesID		= array();
+        $moreUnread = 0;
 
         if($MessCategory == 999)  {
 
@@ -114,6 +115,17 @@ class ShowMessagesPage extends AbstractGamePage
                     ':offset'       => (($page - 1) * MESSAGES_PER_PAGE),
                     ':limit'        => MESSAGES_PER_PAGE
                 ));
+
+                $sql = "SELECT COUNT(*) `count` FROM (SELECT message_unread 
+                    FROM %%MESSAGES%%
+                    WHERE message_owner = :userId AND message_deleted IS NULL
+                    ORDER BY message_time DESC
+                    LIMIT :offset,18446744073709551615) `s` WHERE message_unread <> 0";
+                $moreResult = $db->select($sql, [
+                    ':userId'       => $USER['id'],
+                    ':offset'       => $page * MESSAGES_PER_PAGE,
+                ]);
+                $moreUnread = $moreResult[0]['count'];
             }
 			else
 			{
@@ -139,6 +151,18 @@ class ShowMessagesPage extends AbstractGamePage
                     ':offset'       => (($page - 1) * MESSAGES_PER_PAGE),
                     ':limit'        => MESSAGES_PER_PAGE
                 ));
+
+                $sql = "SELECT COUNT(*) `count` FROM (SELECT message_unread 
+                    FROM %%MESSAGES%%
+                    WHERE message_owner = :userId AND message_type = :messCategory AND message_deleted IS NULL
+                    ORDER BY message_time DESC
+                    LIMIT :offset,18446744073709551615) `s` WHERE message_unread <> 0";
+                $moreResult = $db->select($sql, [
+                    ':userId'       => $USER['id'],
+                    ':messCategory' => $MessCategory,
+                    ':offset'       => $page * MESSAGES_PER_PAGE,
+                ]);
+                $moreUnread = $moreResult[0]['count'];
             }
         }
 
@@ -171,6 +195,7 @@ class ShowMessagesPage extends AbstractGamePage
             'MessageList'	=> $MessageList,
             'page'			=> $page,
             'maxPage'		=> $maxPage,
+            'moreUnread'    => $moreUnread,
         ));
 
         $this->display('page.messages.view.tpl');
@@ -421,7 +446,7 @@ class ShowMessagesPage extends AbstractGamePage
 
         $db = Database::get();
 
-        $TitleColor    	= array ( 0 => '#FFFF00', 1 => '#FF6699', 2 => '#FF3300', 3 => '#FF9900', 4 => '#773399', 5 => '#009933', 15 => '#6495ed', 50 => '#666600', 99 => '#007070', 100 => '#ABABAB',  200 => '#00FF1E', 999 => '#CCCCCC');
+        $TitleColor    	= array ( 0 => '#FFFF00', 1 => '#FF6699', 2 => '#FF3300', 3 => '#FF9900', 4 => '#9646bf', 5 => '#009933', 15 => '#6495ed', 50 => '#8d8d00', 99 => '#009090', 100 => '#ABABAB',  200 => '#00FF1E', 999 => '#CCCCCC');
 
         $sql = "SELECT COUNT(*) as state FROM %%MESSAGES%% WHERE message_sender = :userID AND message_type != 50;";
         $MessOut = $db->selectSingle($sql, array(
