@@ -340,6 +340,6 @@ $LNG['batl_log_mesage']				                 = '<div class="raportMessage">
 	</table>
 </div>' ;        
 $LNG['host_mission_mesag']                           = '星云区';
-$LNG['fl_enemy_msg']['main']                         = '远征队在星云区偶然发现了一队敌方单位，它们自称是%s。';
+$LNG['fl_enemy_msg']['main']                         = '远征舰队在星云区偶然（真的是偶然）发现了一队敌方单位，它们自称是%s。';
 $LNG['fl_enemy_msg']['tm']                           = '发现一个装有%s暗物质的容器。';
 $LNG['fl_enemy_msg']['up']                           = '获得了针对%s的%s份升级';
