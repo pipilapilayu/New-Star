@@ -8,12 +8,12 @@ setlocale(LC_NUMERIC, 'C');
 
 //SERVER GENERALS
 $LNG['dir']         	= 'ltr';
-$LNG['week_day']		= array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-$LNG['months']			= array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+$LNG['week_day']		= array('周日', '周一', '周二', '周三', '周四', '周五', '周六');
+$LNG['months']			= array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12');
 $LNG['js_tdformat']		= '[M] [D] [d] [H]:[i]:[s]';
 $LNG['php_timeformat']	= 'H:i:s';
-$LNG['php_dateformat']	= 'd. M Y';
-$LNG['php_tdformat']	= 'd. M Y, H:i:s';
+$LNG['php_dateformat']	= 'Y年M月d日';
+$LNG['php_tdformat']	= 'Y年M月d日 H:i:s';
 $LNG['short_day']		= 'd';
 $LNG['short_hour']		= 'h';
 $LNG['short_minute']	= 'm';

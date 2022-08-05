@@ -129,6 +129,7 @@ class ShowFleetAjaxPage extends AbstractGamePage
 		planet.galaxy as galaxy,
 		planet.system as system,
 		planet.planet as planet,
+		planet.name as planet_name,
 		planet.planet_type as planet_type,
 		total_points, onlinetime, urlaubs_modus, banaday, authattack
 		FROM %%PLANETS%% planet
@@ -216,6 +217,10 @@ class ShowFleetAjaxPage extends AbstractGamePage
 			$targetData['galaxy'], $targetData['system'], $targetData['planet'], $targetData['planet_type'],
 			$fleetResource, $fleetStartTime, $fleetStayTime, $fleetEndTime, 0, 0, $consumption);
 
-		$this->sendData(600, $LNG['fa_sending']." ".array_sum($fleetArray)." ". $LNG['tech'][$shipID[0]] ." ".$LNG['gl_to']." ".$targetData['galaxy'].":".$targetData['system'].":".$targetData['planet']." ...");
+		$this->sendData(600, strtr($LNG['fa_sending'], array(
+			'{amount}' => array_sum($fleetArray),
+			'{ship}' => $LNG['tech'][$shipID[0]],
+			'{name}' => $targetData['planet_name'],
+			'{coordinate}' => $targetData['galaxy'].":".$targetData['system'].":".$targetData['planet'])));
 	}
 }

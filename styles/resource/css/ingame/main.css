@@ -523,13 +523,16 @@ div#trader + div {
     text-align: center;
 }
 
-.spyRaport{
+.spy-report{
 	width:495px;
 }
-.spyRaportContainerRow.first, .spyRaportFooter, .spyRaportContainer {
+.spy-report-header{
+	line-height:18px;
+}
+.spy-report-container-row.first, .spy-report-footer, .spy-report-container {
 	clear:both;
 }
-.spyRaportContainerHead {
+.spy-report-class-header {
 	font-size: 12px;
     font-weight: bold;
     padding: 2px 5px;
@@ -542,53 +545,24 @@ div#trader + div {
     height: 12px;
     line-height: 12px;
 }
-.spyRaportContainerHead span{
-	display:block;
-	cursor:pointer;
+.spy-report-row {
+	border-bottom:1px solid #303030;
 }
-.spyRaportContainerBlock{
-	width: 161px;
-	float:left;
-	height: 25px;
-	border: 1px #000 solid;
-	margin: 1px;
-	margin-bottom: 3px;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
+.spy-report-element-name, .spy-report-element-amount {
+	display: inline-block;
 }
-.spyRaportContainerCellImg {
-	float:left;
-	width: 25px;
-	height: 25px;
-	background:none;
-	border-bottom:1px #000 solid;
-	overflow:hidden;
-	color:#FFF;
-	margin:0;
-	border-top:none;
-	border-right:none;
+.spy-report-element-name {
+	width: 100px;
+	text-align: right;
 }
-.spyRaportContainerCellImg img{
-	width:100%;
-	height:100%;
+.spy-report-class-900 .spy-report-element-name {
+	width: 60px;
 }
-.spyRaportContainerCellCount, .spyRaportContainerCellName {
-	margin:0;
-	margin-left: 25px;
-	height: 13px;
-	line-height: 12px;
-	text-align:left;
-	overflow:hidden;
-	color:#fff;
-	font-size: 12px;
-	padding-left: 3px;
+.spy-report-element-amount {
+	width: 300px;
+	margin-left: 8px;
 }
-.spyRaportContainerCellName {
-	background: rgb(6, 22, 38);
-	color: rgba(102, 204, 255, 0.9);
-}
-.spyRaportFooter{
+.spy-report-footer{
 	text-align:center;
 	padding-top:10px;
 }
@@ -646,10 +620,6 @@ table.tablesorter thead tr .headerSortDown {
 	color: #cd8e43;
     text-shadow: 0px 0px 5px hsla(49, 94%, 50%, 0.5);
     font-size: 13px;
-}
-
-.spyRaportHead{
-	line-height:18px;
 }
 
 @media screen and (max-width: 1165px) {
@@ -1306,8 +1276,6 @@ select {
 
 /** HEADER **/
 
-#header {
-}
 #resourceWrapper{
 	background: #0D1014 !important;
 	background: rgba(13, 16, 20, 0.80) !important;
@@ -1388,10 +1356,6 @@ td.res_bar div{
 	background-image: url(img/processbar.gif);
 	background-position:top left;
 	border-color:#000;
-}
-
-.spyRaportContainerRow {
-	border-bottom:1px solid #DDD;
 }
 
 .ui-autocomplete, .ui-state-hover, .ui-state-default, .ui-tabs-nav, .ui-tabs, .ui-progressbar, .ui-progressbar-value {

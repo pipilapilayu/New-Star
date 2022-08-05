@@ -781,7 +781,7 @@ $LNG['fa_strong_player']					         = '错误：玩家太强';
 $LNG['fa_not_spy_yourself']					         = '错误，不能探测自己！';
 $LNG['fa_action_not_allowed']				         = '错误：无效操作';
 $LNG['fa_vacation_mode_current']			         = '错误：你处于休假模式';
-$LNG['fa_sending']							         = '正在派遣';
+$LNG['fa_sending']							         = '正在派遣{amount}{ship}至【{name}】[{coordinate}]……';
 //{IDs_0031} Interplanetary rockets
 $LNG['ma_silo_level']						         = '需要4级火箭发射器！';
 $LNG['ma_impulse_drive_required']			         = '需要脉冲引擎';
