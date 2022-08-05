@@ -14,7 +14,7 @@
         </div>
         <div id="planet_select" style="margin: auto;left: 0;right: 0;top:46px;">
             <div class="active_panet">
-				<div class="name_palnet" style="padding-left: 1px;width: 96px;"><img src='{$dpath}planeten/planet2d/{$planetImage}.png' style="float:left;height: 22px;padding-top:3px;margin-right: 5px;">{$planetName}</div> 
+				<div class="name_palnet" title={$planetName} style="padding-left: 1px;width: 96px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;"><img src='{$dpath}planeten/planet2d/{$planetImage}.png' style="float:left;height: 22px;padding-top:3px;margin-right: 5px;">{$planetName}</div> 
                 <span class="ico_build"></span>                            
 				<div class="coordinates_palnet">[{$planetGalaxy}:{$planetSystem}:{$planetPlanet}]</div>
 				<div class="clear"></div>
@@ -38,7 +38,7 @@
                 </div>	   
                 <span class="{if $current_pid == $ID}active_urlpalnet{else}urlpalnet{/if}" url="cp={$ID}">
 					<img src='{$dpath}planeten/planet2d/{$Element.image}.png' style="float:left;height: 22px;padding-top: 5px;">
-                    <span class="name_palnet"  style="padding-top: 5px;padding-left: 5px;width: 70px;">{$Element.name}</span>
+                    <span class="name_palnet" title={$Element.name} style="padding-top: 5px;padding-left: 5px;width: 70px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;">{$Element.name}</span>
 					<span class="ico_build">
                         {if $Element.buildInfo.buildings}
                             <img src="{$dpath}img/iconav/p_select_build.png" alt="" class="tooltip" data-tooltip-content="

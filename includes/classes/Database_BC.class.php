@@ -46,7 +46,7 @@ class Database_BC extends mysqli
 		{
 			throw new Exception("Connection to database failed: ".mysqli_connect_error());
 		}
-		parent::set_charset("utf8");
+		parent::set_charset("utf8mb4");
 		#parent::query("SET SESSION sql_mode = '';");
 		parent::query("SET SESSION sql_mode = 'STRICT_ALL_TABLES';");
 	}

@@ -55,7 +55,7 @@ class PlayerUtil
 	static public function isNameValid($name)
 	{
 		if(UTF8_SUPPORT) {
-			return preg_match('/^[\p{L}\p{N}_\-. ]*$/u', $name);
+			return preg_match('/^[\p{L}\p{N}\p{So}_\-. ]*$/u', $name);
 		} else {
 			return preg_match('/^[A-z0-9_\-. ]*$/', $name);
 		}

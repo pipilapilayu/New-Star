@@ -825,7 +825,7 @@ CREATE TABLE `%PREFIX%planets` (
   KEY `id_owner` (`id_owner`),
   KEY `destruyed` (`destruyed`),
   KEY `universe` (`universe`,`galaxy`,`system`,`planet`,`planet_type`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `%PREFIX%raports` (
   `rid` varchar(32) NOT NULL,

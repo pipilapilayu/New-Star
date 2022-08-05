@@ -108,7 +108,7 @@
                             <span style="color:#0abd00">{$planet}</span></a>
                         </div>
                         {$currentPlanet = $GalaxyRows[$planet]}
-                        <span id="p_{$currentPlanet.planet.id}" class="tooltip gal_img_planet" data-tooltip-content="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]">
+                        <span id="p_{$currentPlanet.planet.id}" class="tooltip gal_img_planet" data-tooltip-content="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}] {$currentPlanet.field_current}/{$currentPlanet.field_max} {$LNG.ov_aprox} {$currentPlanet.temp_min}{$LNG.ov_temp_unit} {$LNG.ov_to} {$currentPlanet.temp_max}{$LNG.ov_temp_unit}">
                             <div class="gl-actions">
                                 <table class="gl-actions-t">	
                                     <tbody>	
