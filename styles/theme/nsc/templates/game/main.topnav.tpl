@@ -94,7 +94,9 @@
             {foreach $resourceTable as $resourceID => $resouceData} 
                 {if !isset($resouceData.current)}
                     {$resouceData.current = $resouceData.max + $resouceData.used}
-                    <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE} {$resouceData.percent|number}%">
+                    <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" 
+                        data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE}{$resouceData.max|number}"
+                        >
                         <div class="ico_res"></div>
                         <div class="stock_res">
                             <div class="stock_percentage stock_percentage_left" style="width:{abs($resouceData.percent/2)}%;{if $resouceData.percent > -0.1}display:none;{/if}"></div>
