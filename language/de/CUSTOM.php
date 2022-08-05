@@ -17,25 +17,26 @@ $LNG['op_vacation']                                  = '假日模式';
 $LNG['op_foto']                                      = '头像（添加网址）';
 $LNG['op_background']                                = '背景（添加网址）';
 // Records
-$LNG['rec_you']                                      = '与你';
+$LNG['rec_you']                                      = '当前星球';
 $LNG['rec_record']                                   = '记录';
-$LNG['rec_user_top']                                 = '记录集​​';
+$LNG['rec_user_top']                                 = '记录用户';
 //Resources
-$LNG['res_disable']                                  = '禁用所有星球上的采矿';
+// TODO: disable and activate does not pair, use disable/enable
+$LNG['res_disable']                                  = '在所有星球上禁用采矿';
 $LNG['res_activate']                                 = '在所有星球上启用采矿';
-$LNG['res_cl_dactivate']                             = '所有星球上的采矿已被禁用';
-$LNG['res_cl_activate']                              = '在所有星球上都启用了采矿';
+$LNG['res_cl_dactivate']                             = '所有星球上的矿厂已被禁用';
+$LNG['res_cl_activate']                              = '所有星球上的矿厂已被启用';
 // Purchase - sale
 $LNG['bd_limit']                                     = '你不能买这么多！';
 $LNG['bd_notres']                                    = '没有足够的资源！';
-$LNG['bd_buy']                                       = '买';
+$LNG['bd_buy']                                       = '购买';
 $LNG['bd_support']                                   = '帮助';
 $LNG['bd_time_day']                                  = '天：';
 $LNG['bd_time_weeks']                                = '周：';
 $LNG['bd_lvl_up']                                    = '等级：';
 $LNG['bd_quantity_up']                               = '数量：';
-$LNG['bd_active']                                    = '积极的：';
-$LNG['bd_recharge']                                  = '充值：';
+$LNG['bd_active']                                    = '使用中：';
+$LNG['bd_recharge']                                  = '冷却中：';
 $LNG['bd_restart_no']                                = '等待...';
 $LNG['bd_total']                                     = '全部的：';
 $LNG['bd_the_initial_cost']                          = '初始投资成本：';
@@ -52,26 +53,26 @@ $LNG['ti_mess']                                      = '信息';
 $LNG['nt_text']                                      = '文本';
 $LNG['nt_title']                                     = '主题';
 // Umperium
-$LNG['lv_sum']                                       = '数量';
+$LNG['lv_sum']                                       = '合计';
 $LNG['lv_resources_h']                               = '每小时资源';
 $LNG['lv_max']                                       = '全部';
 $LNG['lv_max_planet']                                = '行星';
-$LNG['lv_max_moon']                                  = '月球';
+$LNG['lv_max_moon']                                  = '卫星';
 $LNG['lv_max_colon']                                 = '行星状态（殖民化）：';
 $LNG['lv_go_planet']                                 = '继续';
 //Orbit
-$LNG['fl_fleet_grops']                               = '舰队';
-$LNG['fl_new_grops']                                 = '新增舰队';
-$LNG['fl_new_name_grops']                            = '指定舰队的名称';
-$LNG['fl_fleet_points']                              = '选定的舰队点';
-$LNG['fl_grop_1']                                    = '战斗舰队';
+$LNG['fl_fleet_grops']                               = '舰队预设';
+$LNG['fl_new_grops']                                 = '新增舰队预设';
+$LNG['fl_new_name_grops']                            = '舰队预设名称';
+$LNG['fl_fleet_points']                              = '舰队点数';
+$LNG['fl_grop_1']                                    = '战斗';
 $LNG['fl_grop_2']                                    = '运输';
-$LNG['fl_grop_3']                                    = '回收船';
+$LNG['fl_grop_3']                                    = '回收';
 $LNG['fl_grop_4']                                    = '特殊';
 //The buildings
 $LNG['bd_free_field']                                = '空闲：';
 $LNG['bd_em_field']                                  = '已用空间：';
-$LNG['bd_of_field']                                  = 'of';
+$LNG['bd_of_field']                                  = '/';
 $LNG['short_day']                                    = '天';
 $LNG['short_hour']                                   = '小时';
 $LNG['short_minute']                                 = '分';
@@ -82,7 +83,7 @@ $LNG['cost']                                         = '价格';
 $LNG['ov_ticket']                                    = '帮助';
 $LNG['ov_ticket_tooltip']                            = '我会回答你的问题';
 $LNG['ov_online_users']                              = '在线玩家：';
-$LNG['ov_create_moon']                               = '创造月球';
+$LNG['ov_create_moon']                               = '创造卫星';
 $LNG['ov_panel_root']                                = '控制面板';
 //Navigation
 $LNG['lm_market']                                    = '市场';
@@ -91,7 +92,7 @@ $LNG['lm_race']                                      = '种族';
 $LNG['lm_premium']                                   = '星际优选';
 $LNG['lm_bonus']					                 = '每日奖励';
 $LNG['lm_infobonus']					             = '加成信息';
-$LNG['lm_createmoon']					             = '创造月球';
+$LNG['lm_createmoon']					             = '创造卫星';
 $LNG['lm_ars']					                     = '兵工厂';
 $LNG['lm_container']					             = '打开容器';
 $LNG['lm_artifact']                                  = '宇宙神器';
@@ -101,12 +102,12 @@ $LNG['lm_formgovernment']                            = '政体';
 $LNG['lm_ethics']                                    = '道德';
 $LNG['lm_party']					                 = '党派';
 $LNG['lm_ideologies']					             = '意识形态';
-$LNG['lm_band']                                      = '雇佣兵(休业)';
-$LNG['lm_bon']                                       = '古代容器(休业)';
+$LNG['lm_band']                                      = '雇佣兵（休业）';
+$LNG['lm_bon']                                       = '古代容器（休业）';
 $LNG['lm_fair']                                      = '公平交易';
 $LNG['lm_auction']                                   = '舰队拍卖';
-$LNG['lm_buybuild']                                  = '购买建筑物';
-$LNG['lm_buytech']                                   = '采购研究';
+$LNG['lm_buybuild']                                  = '购买建筑';
+$LNG['lm_buytech']                                   = '购买研究';
 $LNG['lm_buyfleet']                                  = '购买舰队';
 $LNG['lm_buydefense']                                = '购买防御';
 $LNG['lm_planet']                                    = '行星控制中心';
@@ -117,13 +118,13 @@ $LNG['lm_finddebris']                                = '寻找废墟';
 $LNG['lm_store']                                     = '商店';
 $LNG['lm_minerals']                                  = '矿物';
 $LNG['lm_details']                                   = '精加工';
-$LNG['PPS']                                          = '每小时产量';
-$LNG['PPD']                                          = '每天的产量';
-$LNG['PPW']                                          = '每周产量';
-$LNG['RE']                                           = '可用的：';
+$LNG['PPS']                                          = '时产量';
+$LNG['PPD']                                          = '日产量';
+$LNG['PPW']                                          = '周产量';
+$LNG['RE']                                           = '可用：';
 //Statistics
 $LNG['st_next']                                      = '下次更新';
-// Mapket
+// Market
 $LNG['market_indicated']                             = '未指定价格。';
 $LNG['market_exposed']                               = '报价已提交！';
 $LNG['market_not_enough_money']                      = '你没有足够的资源！';
@@ -166,28 +167,28 @@ $LNG['al_storage_msg_received']                      = '已收到资源。';
 $LNG['al_storage_msg_issued']                        = '已分批资源。';
 $LNG['al_storage_msg_coordinates']                   = '未选择资源交付坐标。';
 // Races
-$LNG['race_one']                                     = '种族选择：';
-$LNG['race_yes']                                     = '种族已选择。';
+$LNG['race_one']                                     = '选择种族：';
+$LNG['race_yes']                                     = '种族已选择';
 //Conveyor
 $LNG['sec_conv']                                     = '每秒';
 //Info bonus
 $LNG['inb_percent']                                  = '百分比';
 $LNG['inb_units']                                    = '单位';
-$LNG['inb_name']                                     = '姓名';
+$LNG['inb_name']                                     = '项目';
 //Create moon
-$LNG['crm_value']                                    = '创造月球需要：';
-$LNG['crm_war']                                      = '月球的直径是随机的！';
-$LNG['crm_create']                                   = '月球创造成功！';
-$LNG['crm_moon_is']                                  = '你已经在这个星球上拥有了一个月球！';
-$LNG['crm_not_res']                                  = '你没有足够的资源！';
+$LNG['crm_value']                                    = '创造卫星需要：';
+$LNG['crm_war']                                      = '卫星的直径是随机的！';
+$LNG['crm_create']                                   = '创造卫星成功！';
+$LNG['crm_moon_is']                                  = '这个行星已经有了一个卫星';
+$LNG['crm_not_res']                                  = '没有足够的资源';
 //Container
 $LNG['cont_open_go']                                 = '打开';
-$LNG['cont_open_24']					             = '24 小时内开过。';
+$LNG['cont_open_24']					             = '24小时内开过。';
 $LNG['cont_msg_limit']                               = '你不能一次打开尽可能多的容器。';
 $LNG['cont_not_cont_user']                           = '没有足够的容器！';
-$LNG['cont_open']                                    = '你已经打开了：';
+$LNG['cont_open']                                    = '打开了：';
 //Information
-$LNG['in_attack_pt']                                 = '标准攻击';
+$LNG['in_attack_pt']                                 = '普通攻击';
 $LNG['in_attack_laser']                              = '激光攻击';
 $LNG['in_attack_ionic']                              = '离子攻击';
 $LNG['in_attack_buster']                             = '等离子攻击';
@@ -202,35 +203,35 @@ $LNG['in_armor_heavy']                               = '重型装甲';
 $LNG['in_number']                                    = '数量';
 $LNG['in_recovery']                                  = '战斗后恢复';
 //System
-$LNG['sys_expe_found_ars_1']                         = '我们找到了战场,其中遗留的高新科技足以使我们的科学家创造出一份升级';
-$LNG['sys_expe_found_ars_2']                         = '指挥官允许与新种族接触,尽管这违反了章程。结果是它很友好,我们能够建立贸易关系。成功完成交换后,探险队获得了一份升级';
-$LNG['sys_expe_found_ars_3']                         = '远征队决定使用新的搜索模块。结果,探险队迅速找到了一颗小行星。经过研究,团队发现了一份升级';
-$LNG['sys_expe_found_ars_4']                         = '探险队发现了一个更先进种族的破碎机器人。经过检查,团队发现了一份升级';
-$LNG['sys_expe_found_ars_5']                         = '探险队本应该空手而归,但在路线的尽头,我们发现了一颗被摧毁的大型小行星。经过长时间的研究,团队创造了一份升级';
-$LNG['sys_expe_found_ars_6']                         = '探险的开始已经很糟糕了。中途,大部分船员都病倒了,但幸运的是,在途中遇到了一艘外星飞船。我们花费了一些氘与其交换,它治愈了远征队并提供了一份升级';
-$LNG['sys_expe_found_ars_7']                         = '团队认为这次探险相当成功。我们能够拍摄很多有趣的太空照片,我们认为他们会赢得比赛,事实也确实是如此。高昂的士气使得科学家创造了一份升级';
-$LNG['sys_expe_found_container_1']                   = '这次探险并不是特别成功。我们在小行星上进行了几次不成功的着陆,还试图从小行星上提取资源,但不幸的是,每次设备都发生故障,或者在最坏的情况下,数据不正确。在回家的路上,我们遇到了一个战场。它是不久前出现的,我们回收了其中残留的容器。';
-$LNG['sys_expe_found_container_2']                   = '聪明的指挥官为这艘船配备了最新的设备。这帮助我们迅速找到了一个几乎被摧毁的小行星。研究,我们找到了数据。他们记录了近期事件的历史,以及地球设备的计划。他帮助我们找到了一个存储设施';
-$LNG['sys_expe_found_container_3']                   = '这次探险非常有趣和成功。我们遇到了很多不同的种族,做过实验,甚至还好好休息了一下。最终,我们飞到了一个我们曾经开采资源的地方,但这次我们看到了最近战斗的领域。我们最终找到了一些容器';
-$LNG['sys_expe_found_container_4']                   = '我们在空旷的地方徘徊了很长时间,因为指挥官没有成功地选择我们的道路。违反章程后,我们一致将他关进了惩戒室。改变探险的路径,团队发现了不同种族的船只,交易获得了一些容器';
-$LNG['sys_expe_found_container_5']                   = '这次探险并没有从团队中汲取太多力量。在旅程的最开始,我们记录了一个信号。等飞得更近了,我们意识到这是一艘商船。该团队用容器来换取暗物质,远征队决定交换。';
-$LNG['sys_expe_found_so_1']                          = '探险队偶然发现了一颗已灭绝的恒星,并能够提取出一颗 <span style = "color:#e8ce10">Stardust</span>。';
-$LNG['sys_expe_found_so_2']                          = '探险队在恒星爆炸后偶然发现了被破坏的系统,发现了一个单一的<span style = "color:#e8ce10">Stardust</span>。';
-$LNG['sys_expe_found_so_3']                          = '探险队发现了一个破碎的黑洞反应堆并提取了一个<span style = "color: #e8ce10">Stardust</span>。';
-$LNG['sys_expe_found_so_4']                          = '远征队发现了远古系统留下的痕迹。在一个星球上,有一个资源仓库,其中发现了一个<span style = "color:#e8ce10">Stardust</span>。 ';
-$LNG['sys_expe_found_so_5']                          = "探险队遇到了一个奇怪的异常,之后我们发现自己在废弃海盗基地附近。在机库中发现了一个 <span style = 'color:#e8ce10'>Stardust</span>。";
-$LNG['sys_expe_found_so_6']                          = '探险队遇到了一艘不知名的船。在谈判期间,我们用暗物质交换了一个 <span style = "color:#e8ce10">Stardust</span>。 ';
-$LNG['sys_expe_found_so_7']                          = '探险没有成功。但是在回来的路上我们发现了一个容器,里面有一个<span style = "color:#e8ce10">Stardust</span>。 ';
+$LNG['sys_expe_found_ars_1']                         = '远征舰队找到了战场，其中遗留的高新科技足以使科学家们创造出一份升级。';
+$LNG['sys_expe_found_ars_2']                         = '尽管违反了章程，但是指挥官任然允许与新种族进行接触。结果证明它们非常友好，可以与我们建立贸易关系。成功完成交易后，舰队获得了一份升级。';
+$LNG['sys_expe_found_ars_3']                         = '远征舰队决定使用新的搜索模块，结果它迅速找到了一颗小行星。经过研究，舰队发现了一份升级。';
+$LNG['sys_expe_found_ars_4']                         = '远征舰队发现了一个更先进种族的机器人残骸。经过检查，舰队发现了一份升级。';
+$LNG['sys_expe_found_ars_5']                         = '远征舰队本应该空手而归，但是在旅途结束之前，舰队发现了一颗被摧毁的行星。经过长时间的研究，科学家们创造了一份升级。';
+$LNG['sys_expe_found_ars_6']                         = '探索的初期已经很糟糕了。大部分船员都在中途病倒了，但幸运的是，远征舰队在途中遇到了一艘外星飞船，在交换了一些燃料之后（没有真的使用），他们帮助治愈了船员并提供了一份升级。';
+$LNG['sys_expe_found_ars_7']                         = '远征舰队认为这次探索相当成功，能够拍摄很多有趣的太空照片，我们认为他们会赢得比赛，事实也确实是如此。高昂的士气使得科学家们创造了一份升级。';
+$LNG['sys_expe_found_container_1']                   = '这次探索并不是特别成功，远征舰队在小行星上进行了几次失败的着陆，还试图从小行星上提取资源。但不幸的是，每次设备都发生故障，甚至读取了不正确的数据。在返回的路上，舰队遇到了一个不久前出现的战场，并回收了其中残留的容器。';
+$LNG['sys_expe_found_container_2']                   = '聪明的指挥官为这次远征配备了最新的设备，这帮助远征舰队迅速找到了一个几乎被摧毁的小行星。经过研究，科学家们找到了数据。它们记录了近期的历史，以及星球建设的计划。这帮助舰队找到了一些容器。';
+$LNG['sys_expe_found_container_3']                   = '这次探索非常有趣和成功。远征舰队遇到了很多不同的种族，进行了实验，甚至还好好放松了一下。最终，舰队到达了一个曾经开采资源的地方，但这次却看到了近期战斗的痕迹。他们在这里找到了一些容器。';
+$LNG['sys_expe_found_container_4']                   = '远征舰队在空旷的地方徘徊了很长时间，因为指挥官没有成功地选择前进的路线。在多次违反章程后，船员们一致决定将他关进惩戒室。在修改探索路线之后，舰队发现了不同种族的舰船，通过交易获得了一些容器。';
+$LNG['sys_expe_found_container_5']                   = '这次探索并没有消耗太多精力。在旅途的最开始，远征舰队记录了一个信号。在靠近之后，舰队发现这是一艘商船，他们使用容器来换取暗物质，舰队同意进行交易（没有真的使用）。';
+$LNG['sys_expe_found_so_1']                          = '远征舰队偶然发现了一颗已死亡的恒星，并能够提取出一颗<span style="color:#e8ce10">星核</span>。提取过程中的意外使舰队遭受了一些损失（没有真的损失）。';
+$LNG['sys_expe_found_so_2']                          = '远征舰队被一颗恒星的死亡现场波及了，但是之后在被破坏的星系中发现了一颗<span style="color:#e8ce10">星核</span>。';
+$LNG['sys_expe_found_so_3']                          = '远征舰队发现了一个损坏的黑洞反应堆并冒着危险提取了一颗<span style="color:#e8ce10">星核</span>。';
+$LNG['sys_expe_found_so_4']                          = '远征舰队发现了普罗托文明的曾经活动过的星系。在其中一个星球的仓库中发现了一颗<span style="color:#e8ce10">星核</span>。舰队离开的时候触发了遗迹的防御机制，所幸损失不大（没有真的损失）。';
+$LNG['sys_expe_found_so_5']                          = '远征舰队检查了一处异常区域，接近之后发现自己在废弃海盗基地附近，并在他们的机库中发现了一颗<span style="color:#e8ce10">星核</span>。但是返回的时候一部分舰队没有成功通过传送门（没有真的损失）。';
+$LNG['sys_expe_found_so_6']                          = '远征舰队遇到了一支神秘舰队。在谈判期间，他们用暗物质交换了一颗<span style="color:#e8ce10">星核</span>（没有真的使用）。';
+$LNG['sys_expe_found_so_7']                          = '探索没有成功，但是在回来的路上远征舰队发现了一个容器，打开之后里面有一颗<span style="color:#e8ce10">星核</span>。（这次真的没有损失）';
 //Achievements
 $LNG['ach_system']					                 = '系统';
-$LNG['ach_reached']					                 = '到达：';
+$LNG['ach_reached']					                 = '获得成就：';
 $LNG['ach_bonus']					                 = '查看加成';
-$LNG['ach_next_upg']					        	 = '下一级奖励：';
+$LNG['ach_next_upg']					        	 = '下一级加成：';
 $LNG['ach_remaining']					        	 = '剩余升级：';
 $LNG['ach_go_achievements']					         = '前往成就';
 //Form of government
 $LNG['fg_one']                                       = '选择政体：';
-$LNG['fg_yes']                                       = '政体已选定。';
+$LNG['fg_yes']                                       = '政体已选择';
 //Ethics
 $LNG['et_one']                                       = '道德选择：';
 $LNG['et_yes']                                       = '道德已选择';
@@ -241,24 +242,24 @@ $LNG['pla_notenogu']                                 = '没有足够的暗物质
 $LNG['pla_tel_fleet']                                = '飞行中的舰队';
 $LNG['pla_no_planet']                                = '你必须从这个星球传送';
 $LNG['pla_tel_busy']                                 = '坐标正忙';
-$LNG['pla_reactor']                                  = '反应堆很热！';
+$LNG['pla_reactor']                                  = '反应堆过热';
 $LNG['pla_tel_ok']                                   = '行星传送';
 $LNG['pla_added']                                    = '添加！';
 $LNG['pla_error']                                    = '错误！';
-$LNG['pla_increase_in_fields']                       = '增加行星空间';
-$LNG['pla_increase_in_diameter']                     = '增加行星的直径';
+$LNG['pla_increase_in_fields']                       = '增加星球空间';
+$LNG['pla_increase_in_diameter']                     = '增加星球直径';
 $LNG['pla_incre_ok']                                 = '增加';
 $LNG['pla_tele_pal']                                 = '传送星球';
-$LNG['pla_tele_gal']                                 = ' 星系';
-$LNG['pla_tele_sys']                                 = ' 恒星系';
-$LNG['pla_tele_pla']                                 = ' 行星';
-$LNG['pla_tel_next']                                 = '在非系统上,将可用';
+$LNG['pla_tele_gal']                                 = '星系';
+$LNG['pla_tele_sys']                                 = '恒星系';
+$LNG['pla_tele_pla']                                 = '行星';
+$LNG['pla_tel_next']                                 = '在非系统上，将可用';
 $LNG['pla_tele_sub']                                 = '传送';
-$LNG['pla_gen']                                      = '生成';
-$LNG['pla_new_name']                                 = '行星的新名称';
-$LNG['pla_del']                                      = '移除星球';
+$LNG['pla_gen']                                      = '随机生成';
+$LNG['pla_new_name']                                 = '行星名称';
+$LNG['pla_del']                                      = '摧毁星球';
 $LNG['pla_pass']                                     = '密码';
-$LNG['pla_send']                                     = '好的';
+$LNG['pla_send']                                     = '确认';
 // Resource distribution
 $LNG['rd_select_palet_res']                          = '选择要向其发送资源的行星';
 $LNG['rd_not_nid_fleet']                             = '没有合适的舰队';
@@ -296,32 +297,32 @@ $LNG['fl_enemy'][1]                                  = '海盗';
 $LNG['fl_enemy'][2]                                  = '外星人';
 $LNG['fl_enemy'][3]                                  = '古人';
 $LNG['fl_enemy_text'][1]                             = "
-<b> 海盗：</b> <br>
-找到升级的机会：10% <br>
-舰队数量为玩家发射的舰队数量的60-70%。 <br>
-海盗科技为 60-70% 玩家的科技。 <br>
-找到暗物质的基本几率 30% <br>
-海盗最低舰队点数 2.500 <br>
+<b>海盗：</b><br>
+找到升级的概率：10%<br>
+舰队数量为玩家派遣的舰队数量的60 - 70%。<br>
+海盗科技为60 - 70%玩家的科技。 <br>
+找到暗物质的概率：30% <br>
+海盗最低舰队点数2,500 <br>
 玩家舰队点数不限<br>
-舰队的废墟收集百分比：1% <br> ";
+废墟回收率：1%<br> ";
 $LNG['fl_enemy_text'][2]                             = "
-<b> 外星人：</b> <br>
-找到升级的机会：10% <br>
-舰队的数量是玩家发射的舰队的70-80%。 <br>
-外星科技为 70-80% 玩家的科技。 <br>
-找到暗物质的基本几率 30% <br>
-外星人最低舰队点数 15,000 <br>
+<b>外星人：</b><br>
+找到升级的概率：10%<br>
+舰队的数量是玩家派遣的舰队的70 - 80%。<br>
+外星科技为70 - 80%玩家的科技。<br>
+找到暗物质的概率：30%<br>
+外星人最低舰队点数15,000<br>
 玩家舰队点数不限<br>
-舰队的废墟收集百分比：2% <br> ";
+废墟回收率：2%<br> ";
 $LNG['fl_enemy_text'][3]                             = "
-<b> 古人：</b> <br>
-找到升级的机会：10% <br>
-舰队的数量是玩家发射的舰队的80-90%。 <br>
-古代科技为 80-90% 的玩家科技。 <br>
-找到暗物质的基本几率 30% <br>
-古人最低舰队点数 25,000 <br>
+<b>古人：</b> <br>
+找到升级的概率：10% <br>
+舰队的数量是玩家派遣的舰队的80-90%。<br>
+古代科技为80 - 90%的玩家科技。 <br>
+找到暗物质的概率：30%<br>
+古人最低舰队点数25,000<br>
 玩家舰队点数不限<br>
-舰队的废墟收集百分比：3% <br> "; 
+废墟回收率：3% <br> "; 
 $LNG['batl_log_mesage']				                 = '<div class="raportMessage">
 	<table>
 		<tr>
@@ -340,5 +341,5 @@ $LNG['batl_log_mesage']				                 = '<div class="raportMessage">
 </div>' ;        
 $LNG['host_mission_mesag']                           = '星云区';
 $LNG['fl_enemy_msg']['main']                         = '远征队在星云区偶然发现了一队敌方单位，它们自称是%s。';
-$LNG['fl_enemy_msg']['tm']                           = '发现一个装有 %s 暗物质的容器。';
-$LNG['fl_enemy_msg']['up']                           = '获得了针对 %s 的 %s 份升级';
+$LNG['fl_enemy_msg']['tm']                           = '发现一个装有%s暗物质的容器。';
+$LNG['fl_enemy_msg']['up']                           = '获得了针对%s的%s份升级';
